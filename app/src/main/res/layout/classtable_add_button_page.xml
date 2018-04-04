@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/classtable_add_button_page_rela"
+    android:layout_width="match_parent"
+    android:paddingRight="16dp"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/classtable_add_button_page_float_button"
+        android:layout_width="@dimen/classtable_add_button_wh"
+        android:layout_height="@dimen/classtable_add_button_wh"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="16dp"
+        android:src="@mipmap/classtable_add_button"/>
+    <TextView
+        style="@style/add_button_page_text_style"
+        android:id="@+id/classtable_add_button_page_text_cengke"
+        android:text="@string/classtable_cengke"
+        android:visibility="gone"
+        android:layout_above="@+id/classtable_add_button_page_float_button"
+        />
+    <TextView
+        style="@style/add_button_page_text_style"
+        android:id="@+id/classtable_add_button_page_text_get_from_hub"
+        android:text="@string/classtable_add_button_page_get_from_hub"
+        android:layout_above="@+id/classtable_add_button_page_text_cengke" />
+
+    <TextView
+        style="@style/add_button_page_text_style"
+        android:id="@+id/classtable_add_button_page_text_add_by_myself"
+        android:text="@string/classtable_add_button_page_text_add_by_myself"
+        android:layout_above="@+id/classtable_add_button_page_text_get_from_hub"/>
+</RelativeLayout>

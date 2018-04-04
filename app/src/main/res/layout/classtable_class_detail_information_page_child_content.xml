@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+        <View
+            android:id="@+id/view3"
+            android:layout_width="3dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="8dp"
+            android:background="@color/classtable_class_detail_information_page_color_view3" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@id/view3"
+            android:text="@string/classtable_go_to_class_time"
+            android:textColor="@android:color/black"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/class_detail_information_linear">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="周次"/>
+            <TextView
+                android:id="@+id/classtable_class_detail_information_page_child_content_text1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="1-12周"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/classtable_class_detail_information_page_linear_stroke"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="节次"/>
+            <TextView
+                android:id="@+id/classtable_class_detail_information_page_child_content_text2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="第1节到第2节"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/classtable_class_detail_information_page_linear_stroke"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="地点"/>
+            <TextView
+                android:id="@+id/classtable_class_detail_information_page_child_content_text3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="未知"/>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

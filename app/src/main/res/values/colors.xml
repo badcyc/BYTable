@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="ccc_view_color">#e1e1e1</color>
+    <color name="classtable_theme_color">#d000cd90</color>
+    <color name="classtable_line_color">#e1e1e1</color>
+    <color name="white">#ffffff</color>
+    <color name="gray">#9e9e9e</color>
+    <color name="gray_f4f4f4">#f4f4f4</color>
+    <color name="gray_565656">#565656</color>
+    <color name="gray_b5b5b5">#b5b5b5</color>
+    <color name="gray_ffffff">#ffffff</color>
+    <color name="gray_929292">#929292</color>
+    <color name="green_00cd90">#00cd90</color>
+    <color name="ababab">#ababab</color>
+    <color name="bababa">#bababa</color>
+    <color name="c1c1c1">#c1c1c1</color>
+    <color name="classtable_setting_page_content_background">#ffd7d7d7</color>
+    <color name="classtable_setting_page_content_rela_background">#fff3f3f3</color>
+    <color name="classtable_setting_page_content_rela_text_color">#37474f</color>
+    <color name="classtable_classes_container_pm_background">#d5f9ff</color>
+    <color name="left_time_top_text_color">#626060</color>
+    <color name="left_time_view_color">#b4dbed</color>
+    <color name="left_time_background_color">#f2f2f2</color>
+    <color name="day_week_background_color">#d0cdf5ff</color>
+    <color name="alpha_white">#00ffffff</color>
+    <color name="select_week_item_text_color">#3b95e8</color>
+    <color name="not_the_week_text_color">#f58046</color>
+    <color name="add_class_time_normal_green">#4fd2c2</color>
+    <color name="add_class_time_pressed_greed">#43b7a9</color>
+    <color name="delete_class_time_normal_color">#f7604f</color>
+    <color name="delete_class_time_pressed_color">#e15247</color>
+    <color name="select_class_week_dialog_background">#eaeaea</color>
+    <color name="select_class_week_dialog_background_alpha">#e0e0e0</color>
+    <color name="transparent">#80000000</color>
+    <color name="classtable_select_class_dialog_divide_line_color">#d1d1d1</color>
+    <color name="select_week_item_pressed">#0094ce</color>
+    <color name="select_week_item_pressed_alpha">#9000aaee</color>
+    <color name="select_week_item_normal">#00aaee</color>
+    <color name="day_week_select_day_shape_color">#ffffff</color>
+    <color name="classtable_class_detail_information_page_background_color">#f7f7f7</color>
+    <color name="classtable_class_detail_information_page_color_view1">#faa64f</color>
+    <color name="classtable_class_detail_information_page_text_stroke">#e6e6e6</color>
+    <color name="classtable_select_class_dialog_text_color">#3b97e9</color>
+    <color name="classtable_class_detail_information_page_color_view2">#85baff</color>
+    <color name="classtable_class_detail_information_page_color_view3">#a789d7</color>
+    <color name="classtable_class_detail_information_page_linear_stroke">#dbdbdb</color>
+    <color name="black">#000000</color>
+    <string-array name="ClassColorArray">
+        <item>#1daba7</item>
+        <item>#fbba47</item>
+        <item>#00aaee</item>
+        <item>#e44d3f</item>
+        <item>#2ea9df</item>
+        <item>#40bc0e</item>
+        <item>#f17fa0</item>
+        <item>#57c0de</item>
+        <item>#e096b1</item>
+        <item>#bfa896</item>
+    </string-array>
+</resources>
