@@ -16,7 +16,7 @@ public class Common {
         SUMMER, WINTER, UNKNOW
     }
 
-    private static SEASON mCurrentSeason = SEASON.SUMMER;
+    private static SEASON mCurrentSeason = SEASON.WINTER;
     private static HashMap<String, Integer> classColorIndex = new HashMap<>();
     private static int colorIndex = 0;
     private static int COLOR_INDEX_MAX = 10;

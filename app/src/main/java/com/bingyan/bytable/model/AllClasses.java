@@ -2,6 +2,8 @@ package com.bingyan.bytable.model;
 
 
 
+import android.util.Log;
+
 import com.bingyan.bytable.School;
 import com.bingyan.bytable.query.Config;
 import com.bingyan.bytable.query.HubBean;
@@ -29,6 +31,8 @@ public class AllClasses implements Cloneable {
         return super.clone();
     }
 
+    private static final String TAG = "AllClasses";
+
     public static AllClasses parserHubBean(HubBean hubBean) throws ParseException {
         AllClasses allClasses = new AllClasses();
         int index = 0;
@@ -42,6 +46,7 @@ public class AllClasses implements Cloneable {
                         ClassUnit classUnit = ClassUnit.parser(hubBean.datas.get(index));
                         if (oneDayClasses.shouldAddTheClass(classUnit)) {
                             oneDayClasses.add(classUnit);
+                          //  Log.d(TAG, "parserHubBean: "+index+classUnit.mClassName);
                             index++;
                         } else
                             break;
@@ -54,7 +59,10 @@ public class AllClasses implements Cloneable {
         }
         AllClasses ac = new AllClasses();
         ac.mAllClasses = School.getSchoolWeeks();
+        //todo
+
         allClasses.combine(ac);
+
         return allClasses;
     }
 

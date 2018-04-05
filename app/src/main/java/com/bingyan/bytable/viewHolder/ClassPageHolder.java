@@ -58,33 +58,35 @@ public class ClassPageHolder extends ClasstableBaseHolder implements View.OnClic
     private int mSelectWeek;
 
     public static String data;
+
     public ClassPageHolder(Context context, AllClasses allClasses) {
         super(R.layout.classtable_class_page, context);
+        if (allClasses == null) {
+            data = ActivityUtil.getSharePreferencesByKey(context, "js", "js");
+            Gson gson = new Gson();
+            ArrayList<HubBean.Data> datas = gson.fromJson(data, new TypeToken<ArrayList<HubBean.Data>>() {
+            }.getType());
+            final HubBean hubBean = new HubBean();
+            hubBean.datas = datas;
+            for (HubBean.Data data : datas) {
+                data.formattedTxt = gson.fromJson(data.txt, HubBean.Txt.class);
+            }
+            try {
+                mAllClasses = AllClasses.parserHubBean(hubBean);
+                Store.saveClassData(getContext(), mAllClasses);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                sleep(1000);
 
-        data= ActivityUtil.getSharePreferencesByKey(context,"js","js");
-
-        Gson gson = new Gson();
-        ArrayList<HubBean.Data> datas=gson.fromJson(data, new TypeToken<ArrayList<HubBean.Data>>(){}.getType());
-        final HubBean hubBean = new HubBean();
-        hubBean.datas = datas;
-
-        for (HubBean.Data data : datas) {
-            data.formattedTxt = gson.fromJson(data.txt, HubBean.Txt.class);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            mAllClasses = allClasses;
         }
-
-        try {
-            mAllClasses = AllClasses.parserHubBean(hubBean);
-            Store.saveClassData(getContext(),  mAllClasses);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        try {
-            sleep(1000);
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-      //  mAllClasses = allClasses;
+        //  mAllClasses = allClasses;
         mAllClasses.addEmptyWeekUntil24();
         mCurrentWeek = getCurrentWeek();
         mSelectWeek = mCurrentWeek;
@@ -106,7 +108,6 @@ public class ClassPageHolder extends ClasstableBaseHolder implements View.OnClic
 
             }
         });
-
         setPageData(mCurrentWeek);
         mViewPager.setCurrentItem(mCurrentWeek - 1, true);
     }
@@ -139,15 +140,14 @@ public class ClassPageHolder extends ClasstableBaseHolder implements View.OnClic
 
         if (oneWeekClasses.isContainToday()) {
             LinearLayout father = findL(R.id.classtable_day_week_father_linear);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN){
-                LinearLayout lx = (LinearLayout) father.getChildAt(DateUtils.getWeekday()-1);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                LinearLayout lx = (LinearLayout) father.getChildAt(DateUtils.getWeekday() - 1);
                 TextView bottom = (TextView) lx.getChildAt(1);
                 bottom.setTextColor(getContext().getResources().getColor(R.color.classtable_theme_color));
                 bottom.setBackground(getContext().getResources().getDrawable(R.drawable.day_week_select_day_shape));
-               // father.getChildAt(DateUtils.getWeekday() - 1).setBackground(getContext().getResources().getDrawable(R.drawable.day_week_select_day_shape));
-            }
-            else{
-                LinearLayout lx = (LinearLayout) father.getChildAt(DateUtils.getWeekday()-1);
+                // father.getChildAt(DateUtils.getWeekday() - 1).setBackground(getContext().getResources().getDrawable(R.drawable.day_week_select_day_shape));
+            } else {
+                LinearLayout lx = (LinearLayout) father.getChildAt(DateUtils.getWeekday() - 1);
                 TextView bottom = (TextView) lx.getChildAt(1);
                 bottom.setTextColor(getContext().getResources().getColor(R.color.classtable_theme_color));
                 bottom.setBackgroundDrawable(getContext().getResources().getDrawable(R.drawable.day_week_select_day_shape));
@@ -155,16 +155,15 @@ public class ClassPageHolder extends ClasstableBaseHolder implements View.OnClic
             }
         } else {
             LinearLayout father = findL(R.id.classtable_day_week_father_linear);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN){
-                LinearLayout lx = (LinearLayout) father.getChildAt(DateUtils.getWeekday()-1);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                LinearLayout lx = (LinearLayout) father.getChildAt(DateUtils.getWeekday() - 1);
                 TextView bottom = (TextView) lx.getChildAt(1);
                 bottom.setTextColor(getContext().getResources().getColor(R.color.classtable_theme_color));
                 bottom.setTextColor(Color.WHITE);
                 bottom.setBackground(null);
                 //father.getChildAt(DateUtils.getWeekday() - 1).setBackground(null);
-            }
-            else{
-                LinearLayout lx = (LinearLayout) father.getChildAt(DateUtils.getWeekday()-1);
+            } else {
+                LinearLayout lx = (LinearLayout) father.getChildAt(DateUtils.getWeekday() - 1);
                 TextView bottom = (TextView) lx.getChildAt(1);
                 bottom.setTextColor(getContext().getResources().getColor(R.color.classtable_theme_color));
                 bottom.setTextColor(Color.WHITE);

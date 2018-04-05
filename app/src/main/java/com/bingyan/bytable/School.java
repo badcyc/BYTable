@@ -1,6 +1,7 @@
 package com.bingyan.bytable;
 
 import android.support.annotation.IntRange;
+import android.util.Log;
 
 
 import com.bingyan.bytable.model.Common;
@@ -58,6 +59,7 @@ public class School {
      * @return 1<=return<=ALLW.length
      */
 
+    private static final String TAG = "School";
     public static List<OneWeekClasses> getSchoolWeeks() {
         List<OneWeekClasses> oneES = new ArrayList<>();
         for(int i=0;i<ALLW.length;i++){
@@ -67,6 +69,7 @@ public class School {
                 int[] y_m_d = split(ALLW[i][j]);
                 oneWeek.mMonth[j] = y_m_d[1];
                 oneWeek.mDay[j] = y_m_d[2];
+                Log.d(TAG, "getSchoolWeeks: "+oneWeek.mMonth[j]+" "+oneWeek.mDay[j]);
             }
             oneES.add(oneWeek);
         }
