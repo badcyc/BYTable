@@ -22,9 +22,9 @@ public class ClasstableMainActivity extends ClasstableBaseActivity {
         AllClasses allClasses = Store.getLocalData(this);
 
         //fake();
-       /* if(Store.isNotification(this))
+       if(Store.isNotification(this))
             ClasstableNotification.start(this);
-        if(!Store.isLocalHaveData(this))
+       /* if(!Store.isLocalHaveData(this))
             holderIn(new WBY_HubLoginPageHolder(this));
         else {
             AllClasses allClasses = Store.getLocalData(this);

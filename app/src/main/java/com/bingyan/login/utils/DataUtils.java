@@ -25,6 +25,7 @@ public class DataUtils {
             URLConnection urlConnection;
             try {
                 url = new URL("https://raw.githubusercontent.com/badcyc/curriculum/master/js");
+                Log.d(TAG, "getJsFileFromHttp: "+"open data");
                 urlConnection = url.openConnection();
                 urlConnection.connect();
                 in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));

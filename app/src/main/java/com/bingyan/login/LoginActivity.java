@@ -75,6 +75,7 @@ public class LoginActivity extends AppCompatActivity {
                            Log.d(TAG, "onSuccess: " + data);
                            runOnUiThread(()->{
                                Log.d(TAG, "onSuccess: "+"runOnUiThread();");
+                               Toast.makeText(LoginActivity.this,data,Toast.LENGTH_SHORT).show();
                                wv.loadUrl(data);
 
                              //  Intent intent=new Intent(LoginActivity.this,ClasstableMainActivity.class);
