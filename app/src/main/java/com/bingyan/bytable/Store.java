@@ -274,6 +274,7 @@ public class Store {
 
     /**
      * 根据课程名和课程地址删除课程
+     *
      * @return
      */
     public static boolean deleteByClassNameAndAddress(Context context, String className, String address) {
@@ -328,20 +329,19 @@ public class Store {
                 String className = new String(unit.mClassName);
                 String address = new String(unit.mClassAddress);
                 String teacher = new String(unit.mTeacher);
-                    j.put("weekday", week);
-                    j.put("last_time",unit.mTimes);
-                    j.put("section_start",start);
-                    j.put("section_end",end);
-                    j.put("section", start + "-" + end+ "节");
-                    j.put("name", className);
-                    j.put("address", address);
-                    j.put("teacher", teacher);
-                    array.put(j);
-
+                j.put("weekday", week);
+                j.put("last_time", unit.mTimes);
+                j.put("section_start", start);
+                j.put("section_end", end);
+                j.put("section", start + "-" + end + "节");
+                j.put("name", className);
+                j.put("address", address);
+                j.put("teacher", teacher);
+                array.put(j);
 
 
             }
-            object.put("array",array);
+            object.put("array", array);
             return object;
         } catch (Exception e) {
             e.printStackTrace();
