@@ -1,5 +1,7 @@
 package com.bingyan.login.utils;
 
+import android.util.Log;
+
 import com.bingyan.login.interf.GetDataCallback;
 import com.bingyan.utils.BaseUtils;
 
@@ -15,6 +17,7 @@ import java.net.URLConnection;
 
 public class DataUtils {
 
+    private static final String TAG = "DataUtils";
     public static void getJsFileFromHttp(GetDataCallback getDataCallback) throws IOException {
         new Thread(() -> {
             URL url;
@@ -31,6 +34,7 @@ public class DataUtils {
                     stringBuilder.append(s);
                 }
                 getDataCallback.onSuccess(stringBuilder.toString());
+                Log.d(TAG, "getJsFileFromHttp: "+stringBuilder.toString());
                 //System.out.println(stringBuilder.toString());
             } catch (IOException e) {
                 e.printStackTrace();

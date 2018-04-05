@@ -23,11 +23,11 @@ public class ActivityUtil {
         transaction.commit();
     }
 
-    public static String getSharePreferencesByKey(Context context, String s, String key){
+    public static synchronized String getSharePreferencesByKey(Context context, String s, String key){
         SharedPreferences preferences=context.getSharedPreferences(s,Context.MODE_PRIVATE);
         return preferences.getString(key,"");
     }
-    public static void putIntoSharePreferences(Context context,String s,String key,String value){
+    public static synchronized void putIntoSharePreferences(Context context,String s,String key,String value){
         SharedPreferences sharedPreferences =
                 context.getSharedPreferences(s, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();

@@ -3,25 +3,18 @@ package com.bingyan.login;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.webkit.JavascriptInterface;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
-
 import com.bingyan.R;
 import com.bingyan.bytable.ClasstableMainActivity;
 import com.bingyan.login.interf.GetDataCallback;
 import com.bingyan.login.utils.DataUtils;
-import com.bingyan.utils.ActivityUtil;
 
 import java.io.IOException;
 
@@ -29,7 +22,7 @@ import java.io.IOException;
  * Created by cyc20 on 2018/3/16.
  */
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements Bridge.OnSuccessCallback {
 
     /*  WebView mWebView;
       WebSettings mWebSettings;
@@ -54,12 +47,13 @@ public class LoginActivity extends AppCompatActivity {
               "}";
       */
     private WebView wv;
-
+    private Context mContext;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         wv = findViewById(R.id.wv);
+        mContext=this;
         WebSettings settings = wv.getSettings();
         settings.setJavaScriptEnabled(true);
         wv.addJavascriptInterface(new Bridge(this), "bridge");
@@ -80,7 +74,9 @@ public class LoginActivity extends AppCompatActivity {
                        public void onSuccess(String data) {
                            Log.d(TAG, "onSuccess: " + data);
                            runOnUiThread(()->{
+                               Log.d(TAG, "onSuccess: "+"runOnUiThread();");
                                wv.loadUrl(data);
+
                                Intent intent=new Intent(LoginActivity.this,ClasstableMainActivity.class);
                                startActivity(intent);
                            });
@@ -105,11 +101,16 @@ public class LoginActivity extends AppCompatActivity {
     // private static final String TAG = "MainActivity";
     private static final String TAG = "LoginActivity";
 
+    @Override
+    public void onSuccuess() {
+        Intent intent=new Intent(LoginActivity.this,ClasstableMainActivity.class);
+        startActivity(intent);
+    }
 
-
-    private static class Bridge {
+  /*  private static class Bridge {
         private Context context;
 
+        OnSuccessCallback mOnSuccessCallback;
         public Bridge(Context context) {
             this.context = context;
         }
@@ -122,8 +123,13 @@ public class LoginActivity extends AppCompatActivity {
             });
             Log.d(TAG, "show: "+json);
             ActivityUtil.putIntoSharePreferences(context, "js", "js", json);
+            mOnSuccessCallback.onSuccuess();
         }
-    }
+
+        interface OnSuccessCallback{
+            void onSuccuess();
+        }
+    }*/
 
 
 }

@@ -27,6 +27,7 @@ import com.bingyan.bytable.query.HubBean;
 import com.bingyan.bytable.widget.ClassBoxLayout;
 import com.bingyan.common.ClickGuard;
 import com.bingyan.common.DateUtils;
+import com.bingyan.utils.ActivityUtil;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -56,11 +57,14 @@ public class ClassPageHolder extends ClasstableBaseHolder implements View.OnClic
     private int mCurrentWeek;//当前周
     private int mSelectWeek;
 
+    public static String data;
     public ClassPageHolder(Context context, AllClasses allClasses) {
         super(R.layout.classtable_class_page, context);
 
+        data= ActivityUtil.getSharePreferencesByKey(context,"js","js");
+
         Gson gson = new Gson();
-        ArrayList<HubBean.Data> datas=gson.fromJson(DataTest.dataTest, new TypeToken<ArrayList<HubBean.Data>>(){}.getType());
+        ArrayList<HubBean.Data> datas=gson.fromJson(data, new TypeToken<ArrayList<HubBean.Data>>(){}.getType());
         final HubBean hubBean = new HubBean();
         hubBean.datas = datas;
 

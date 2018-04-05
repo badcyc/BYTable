@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.bingyan.bytable.ClasstableMainActivity;
+import com.bingyan.login.LoginActivity;
 
 /**
  * Created by cyc20 on 2018/4/4.
@@ -22,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this, ClasstableMainActivity.class);
+                Intent intent=new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });
