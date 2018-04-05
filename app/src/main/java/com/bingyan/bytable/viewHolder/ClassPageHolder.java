@@ -74,6 +74,7 @@ public class ClassPageHolder extends ClasstableBaseHolder implements View.OnClic
             try {
                 mAllClasses = AllClasses.parserHubBean(hubBean);
                 Store.saveClassData(getContext(), mAllClasses);
+                Store.getLocalData(getContext());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -90,7 +91,7 @@ public class ClassPageHolder extends ClasstableBaseHolder implements View.OnClic
         mAllClasses.addEmptyWeekUntil24();
         mCurrentWeek = getCurrentWeek();
         mSelectWeek = mCurrentWeek;
-        mAdapter = new ClassViewPagerAdapter2(getContext(), allClasses, this);
+        mAdapter = new ClassViewPagerAdapter2(getContext(), mAllClasses, this);
         mViewPager.setAdapter(mAdapter);
         mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override

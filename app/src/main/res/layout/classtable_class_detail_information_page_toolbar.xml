@@ -47,6 +47,7 @@
             android:text="@string/classtable_delete_class_time"
             android:textColor="@color/white"
             android:layout_centerVertical="true"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:visibility="gone"/>
     </RelativeLayout>
 </RelativeLayout>

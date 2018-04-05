@@ -39,7 +39,8 @@
             android:layout_marginBottom="16dp"
             android:layout_marginRight="16dp"
             android:layout_alignParentRight="true"
-            android:src="@mipmap/classtable_add_button"/>
+            android:src="@mipmap/classtable_add_button"
+            android:visibility="gone"/>
     </RelativeLayout>
 
 

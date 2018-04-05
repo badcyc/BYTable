@@ -1,12 +1,14 @@
 package com.bingyan.login;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 import android.webkit.JavascriptInterface;
 import android.widget.Toast;
 
+import com.bingyan.bytable.ClasstableMainActivity;
 import com.bingyan.utils.ActivityUtil;
 
 /**
@@ -17,7 +19,13 @@ public class Bridge {
 
         private Context context;
     private static final String TAG = "Bridge";
-      OnSuccessCallback mOnSuccessCallback;
+      OnSuccessCallback mOnSuccessCallback=new OnSuccessCallback() {
+          @Override
+          public void onSuccuess() {
+              Intent intent=new Intent(context,ClasstableMainActivity.class);
+              context.startActivity(intent);
+          }
+      };
         public Bridge(Context context) {
             this.context = context;
         }

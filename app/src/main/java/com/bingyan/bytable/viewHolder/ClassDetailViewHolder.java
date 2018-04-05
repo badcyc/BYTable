@@ -84,7 +84,8 @@ public class ClassDetailViewHolder extends ClasstableBaseHolder implements View.
     public void onClick(View v) {
         if(v==mRelaBack)
             back();
-        else if(v==mRelaDelete){
+        /*else if(v==mRelaDelete){
+
             MessageDialog dialog = new MessageDialog.Builder(getContext())
                     .setTitle("删除课程")
                     .setMessage("你确定要删除本课程吗?")
@@ -106,6 +107,6 @@ public class ClassDetailViewHolder extends ClasstableBaseHolder implements View.
                         }
                     }).create();
             dialogIn(dialog);
-        }
+        }*/
     }
 }

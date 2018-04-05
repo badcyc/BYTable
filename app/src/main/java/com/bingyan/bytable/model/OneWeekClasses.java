@@ -275,5 +275,11 @@ public class OneWeekClasses {
                 return i+1;
         return 1;
     }
+
+
+    @Override
+    public String toString() {
+        return String.valueOf(mMonth[0])+"月"+String.valueOf(mDay[0])+"号";
+    }
 }
 

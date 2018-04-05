@@ -55,13 +55,19 @@ public class AllClasses implements Cloneable {
                     break;
             }
             oneWeekClasses.setSeason(Common.isSummer() ? Common.SEASON.SUMMER : Common.SEASON.WINTER);
+            Log.d(TAG, "parserHubBean: "+oneWeekClasses.toString());
             allClasses.add(oneWeekClasses);
         }
+
+
         AllClasses ac = new AllClasses();
         ac.mAllClasses = School.getSchoolWeeks();
         //todo
 
         allClasses.combine(ac);
+
+        allClasses.mAllClasses.remove(0);
+        allClasses.mAllClasses.remove(0);
 
         return allClasses;
     }

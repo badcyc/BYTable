@@ -22,7 +22,7 @@ import java.io.IOException;
  * Created by cyc20 on 2018/3/16.
  */
 
-public class LoginActivity extends AppCompatActivity implements Bridge.OnSuccessCallback {
+public class LoginActivity extends AppCompatActivity {
 
     /*  WebView mWebView;
       WebSettings mWebSettings;
@@ -77,8 +77,8 @@ public class LoginActivity extends AppCompatActivity implements Bridge.OnSuccess
                                Log.d(TAG, "onSuccess: "+"runOnUiThread();");
                                wv.loadUrl(data);
 
-                               Intent intent=new Intent(LoginActivity.this,ClasstableMainActivity.class);
-                               startActivity(intent);
+                             //  Intent intent=new Intent(LoginActivity.this,ClasstableMainActivity.class);
+                             //  startActivity(intent);
                            });
                        }
 
@@ -101,12 +101,12 @@ public class LoginActivity extends AppCompatActivity implements Bridge.OnSuccess
     // private static final String TAG = "MainActivity";
     private static final String TAG = "LoginActivity";
 
-    @Override
+  /*  @Override
     public void onSuccuess() {
         Intent intent=new Intent(LoginActivity.this,ClasstableMainActivity.class);
         startActivity(intent);
     }
-
+*/
   /*  private static class Bridge {
         private Context context;
 

@@ -19,6 +19,7 @@ import com.bingyan.login.LoginActivity;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,15 +28,15 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 if (Store.isLocalHaveData(MainActivity.this)) {
 
-                    Log.d(TAG, "onClick: "+"local have data");
+                    Log.d(TAG, "onClick: " + "local have data");
                     Intent intent = new Intent(MainActivity.this, ClasstableMainActivity.class);
                     startActivity(intent);
 
                 } else {
-
-                    Log.d(TAG, "onClick: "+"local no data");
+                    Log.d(TAG, "onClick: " + "local no data");
                     Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                     startActivity(intent);
                 }

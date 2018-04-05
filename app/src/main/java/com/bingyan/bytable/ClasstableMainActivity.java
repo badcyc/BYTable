@@ -20,6 +20,7 @@ public class ClasstableMainActivity extends ClasstableBaseActivity {
         setContentView(R.layout.classtable_page_container);
         fitSystemWindow();
         AllClasses allClasses = Store.getLocalData(this);
+
         //fake();
        /* if(Store.isNotification(this))
             ClasstableNotification.start(this);
