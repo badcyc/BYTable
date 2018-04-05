@@ -12,7 +12,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bingyan.DataTest;
 import com.bingyan.R;
+import com.bingyan.bytable.Store;
 import com.bingyan.bytable.adapter.ClassViewPagerAdapter2;
 import com.bingyan.bytable.adapter.SelectWeekAdapter;
 import com.bingyan.bytable.adapter.ShowManyClassesAdapter;
@@ -28,8 +30,13 @@ import com.bingyan.common.DateUtils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.concurrent.TimeUnit;
+
+import static java.lang.Thread.sleep;
 
 
 /**
@@ -52,18 +59,28 @@ public class ClassPageHolder extends ClasstableBaseHolder implements View.OnClic
     public ClassPageHolder(Context context, AllClasses allClasses) {
         super(R.layout.classtable_class_page, context);
 
-
-
         Gson gson = new Gson();
-        ArrayList<HubBean.Data> datas=gson.fromJson("", new TypeToken<ArrayList<HubBean.Data>>(){}.getType());
-        HubBean hubBean = new HubBean();
+        ArrayList<HubBean.Data> datas=gson.fromJson(DataTest.dataTest, new TypeToken<ArrayList<HubBean.Data>>(){}.getType());
+        final HubBean hubBean = new HubBean();
         hubBean.datas = datas;
-
 
         for (HubBean.Data data : datas) {
             data.formattedTxt = gson.fromJson(data.txt, HubBean.Txt.class);
         }
-        mAllClasses = allClasses;
+
+        try {
+            mAllClasses = AllClasses.parserHubBean(hubBean);
+            Store.saveClassData(getContext(),  mAllClasses);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        try {
+            sleep(1000);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+      //  mAllClasses = allClasses;
         mAllClasses.addEmptyWeekUntil24();
         mCurrentWeek = getCurrentWeek();
         mSelectWeek = mCurrentWeek;

@@ -3,6 +3,7 @@ package com.bingyan.bytable.viewHolder;
 import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -28,8 +29,12 @@ public class SelectWeekViewHolder extends ZeroAlphaDialogHolder {
     private SelectWeekLayout mSelecLayout;
     private int mSelectWeek;
 
+    private static final String TAG = "SelectWeekViewHolder";
+
     public SelectWeekViewHolder(Context context, int weekCount, int currentWeek,int selectWeek, SelectWeekAdapter.SelectWeekCallback callback) {
         super(R.layout.classtable_dialog_select_week, context);
+
+        Log.d(TAG, "SelectWeekViewHolder: "+"onCreate");
         mCurrentWeek = currentWeek;
         mSelectWeek = selectWeek;
         mListViewString = new String[weekCount];
